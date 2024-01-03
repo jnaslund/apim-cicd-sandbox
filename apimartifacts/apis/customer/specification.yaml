@@ -31,6 +31,19 @@ paths:
               example:
                 customer_id: 0
                 customer_name: string
+  '/{id}':
+    delete:
+      summary: customer
+      operationId: customer
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: ''
+      responses:
+        '200':
+          description: 
 components:
   securitySchemes:
     apiKeyHeader:
