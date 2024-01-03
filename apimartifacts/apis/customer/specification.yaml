@@ -1,0 +1,46 @@
+openapi: 3.0.1
+info:
+  title: customer
+  version: '1.0'
+servers:
+  - url: https://api-jn-dev.azure-api.net
+paths:
+  '/customers/{customer_id}':
+    get:
+      summary: customer
+      description: Retrieve a specific customer by ID
+      operationId: get-customers-customer_id
+      parameters:
+        - name: customer_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  customer_id:
+                    type: integer
+                  customer_name:
+                    type: string
+              example:
+                customer_id: 0
+                customer_name: string
+components:
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      name: Ocp-Apim-Subscription-Key
+      in: header
+    apiKeyQuery:
+      type: apiKey
+      name: subscription-key
+      in: query
+security:
+  - apiKeyHeader: [ ]
+  - apiKeyQuery: [ ]
